@@ -2,20 +2,18 @@
 
 import { useState } from 'react'
 import Sidebar from '@/components/Sidebar'
-import BookingForm from '@/components/BookingForm'
-import ServiceForm from '@/components/ServiceForm'
+import Wizard from '@/components/Wizard'
 import Dashboard from '@/components/Dashboard'
 
-type Tab = 'dashboard' | 'new-booking' | 'add-service'
+type Tab = 'dashboard' | 'wizard'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<Tab>('dashboard')
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'dashboard':   return <Dashboard />
-      case 'new-booking': return <BookingForm />
-      case 'add-service': return <ServiceForm />
+      case 'dashboard': return <Dashboard />
+      case 'wizard':    return <Wizard onComplete={() => setActiveTab('dashboard')} />
     }
   }
 

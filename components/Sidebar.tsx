@@ -1,6 +1,6 @@
 'use client'
 
-type Tab = 'dashboard' | 'new-booking' | 'add-service'
+type Tab = 'dashboard' | 'wizard'
 
 interface SidebarProps {
   activeTab: Tab
@@ -15,16 +15,10 @@ const navItems: { id: Tab; label: string; icon: string; description: string }[] 
     description: 'Financial ledger & reports',
   },
   {
-    id: 'new-booking',
-    label: 'New Booking',
-    icon: '＋',
-    description: 'Register a reservation',
-  },
-  {
-    id: 'add-service',
-    label: 'Add Service',
-    icon: '❖',
-    description: 'Append extra to booking',
+    id: 'wizard',
+    label: 'Create Entry',
+    icon: '✦',
+    description: 'Register guest or service',
   },
 ]
 
@@ -83,7 +77,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
       <div className="px-6 py-4 border-t border-[#334155]">
         <p className="text-xs text-slate-600 leading-relaxed">
           Garden Inn &copy; {new Date().getFullYear()}<br />
-          <span className="text-[10px]">Hotel Management v1.0</span>
+          <span className="text-[10px]">Hotel Management v1.1</span>
         </p>
       </div>
     </aside>
